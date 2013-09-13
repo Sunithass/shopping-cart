@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body 
+{
+background-color:#D9D6F3;
+
+}
+h1
+{
+color:#322B61;
+padding-top:2em;
+padding-left:5em;
+text-align:center;
+font:small-caps 40px "Times New Roman", serif" 
+}
+div.img 
+{
+  margin: 2px;
+  border: 1px solid #0000ff;
+  height: auto;
+  width: auto;
+  float: center;
+  text-align: center;
+}	
+span{display:block;}
+
+div.desc
+{
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 2px;
+}
+div.entry
+{
+
+}
+
+tr.list-line-odd
+{
+background-color:#78C1E6;
+}
+tr.list-line-even
+{
+background-color:#FF91B5;
+}
+
+</style>
+</head>
+<body>
+<h1>Your Catalog</h1>
+<table align="center">
+<% for product in @products -%>
+<div class="entry">
+<tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+<td><%= image_tag(product.image_url) %></td>
+<td><h2><%=h product.title %></h2></td>
+<td><%= product.description %></td>
+<td><div class="price-line">
+<%= product.price %></div>
+<td><%= button_to "Add to Cart", {:action => 'add_to_cart', :id => product}, :method => 'post', :remote => true %>
+</td>
+
+</tr>
+<% end %>
+</table>
+</div>
+</body>
+</html>

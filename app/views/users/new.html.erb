@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<style>
+body
+{
+background-color: Pink
+
+} 
+fieldset {
+background: #efe;
+float: down;
+padding-centre: 0.2em;
+}
+ legend {
+color: #dfd ;
+background: #141 ;
+font-family: sans-serif;
+padding: 0.2em 1em;
+}
+ label {
+width: 5em;
+float: left;
+text-align: right;
+padding-top: 0.2em;
+margin-right: 0.1em;
+display: block;
+}
+ select,  textarea,  input {
+margin-left: 0.5em;
+}
+submit {
+margin-left: 4em;
+}
+ div {
+margin: 0.5em 0;
+}
+</style>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<body>
+
+<fieldset>
+<legend>Enter User Details</legend>
+
+<div>
+<%= f.label :name %>:
+<%= f.text_field :name, :size => 40 %>
+</div>
+
+<div>
+<%= f.label :user_password, 'Password' %>:
+<%= f.password_field :password, :size => 40 %>
+</div>
+
+<div>
+<%= f.label :user_password_confirmation, 'Confirmation' %>:
+<%= f.password_field :password_confirmation, :size => 40 %>
+</div>
+
+<div>
+<%= f.submit "Add User", :class => "submit" %>
+<div>
+
+</fieldset>
+<% end %>
+
+</div>
+</body>
+</html>

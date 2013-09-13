@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+ <html>
+ <head>
+ 
+<title>Nokia Online Shopping</title>
+ <%= stylesheet_link_tag "application" , :media => "all" %>
+ 
+</head>
+ <body id="store">
+
+ <div id="banner" style="background-color:#DBB8FF;height:50px;width:1400px;float:left;padding-top: 0px;padding-bottom:10px;border-bottom:0px solid;">
+
+<div style="color:blue;"><%= @page_title || "Nokia Models" %></div>
+
+ <div style="background-position: 2% 2%;padding-right:0em;"><%= image_tag("http://t0.gstatic.com/images?q=tbn:ANd9GcSNwL-GtGDIPocWwkMEqwmwiXTx8dFvrWpmaGHmf945kAqEoJKD" ) %></div>
+ 
+<div style="color:blue;float:right;">
+<%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
+ </div>
+ <div id="columns">
+ <div id="side" style="background-color:#DBB8FF;height:1050px;width:100px;float:left;padding-top:1em;padding-left:1em;width:12em;">
+
+ <a href="http://www....">Home</a><br />
+ <a href="http://www..../ques">Questions</a><br />
+ <a href="http://www..../news">News</a><br />
+ <a href="http://www..../contact">Contact</a><br />
+ </div>
+</div>
+
+ <% if session[:user_id] %>
+<br />
+<div id="list" style="padding-right:0.2em;padding-top:0;float:right;">
+
+<%= link_to 'Orders',   :controller => 'orders' %>
+<%= link_to 'Products', :controller => 'products' %>
+<%= link_to 'Users',    :controller => 'users' %><br /><br />
+<br />
+
+</div>
+
+<% end %>
+
+</div>
+ <div id="main">
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+ <%= yield :layout %>
+ </div>
+ </div>
+
+ </body>
+ </html>

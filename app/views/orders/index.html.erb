@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<style>
+ body {
+background: #E0EAFB;
+}
+ h1 {
+color: #141 ;
+font-family: sans-serif;
+padding-left: 7em;
+padding-top: 5em;
+}
+ link {
+width: 5em;
+display: block;
+}
+ select,  textarea,  input {
+margin-left: 0.5em;
+}
+submit {
+margin-left: 4em;
+}
+table
+{
+padding-left:15em;
+}
+ div {
+margin: 0.5em 0;
+}
+</style>
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Order ID</th>    
+    <th>Name</th>
+    <th>Address</th>
+    <th>Email</th>
+    <th>Pay type</th>
+    
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.email %></td>
+    <td><%= order.pay_type %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Remove', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+</body>
+</html>

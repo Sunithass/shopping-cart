@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<style>
+body
+{
+background-color:#E0EAFB;
+}
+p
+{
+padding-top:3em;
+padding-left:13em;
+}
+</style>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+</html>

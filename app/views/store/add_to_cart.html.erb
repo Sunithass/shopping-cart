@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<style> 
+body
+{
+background-color:#d0e4fe;
+}
+h2
+{
+padding-top:2em;
+color:#322B61;
+text-align:center;
+}
+p
+{
+font-family:"Times New Roman";
+font-size:20px;
+}
+.item-price, .total-line {
+text-align: right;
+}
+.total-line .total-cell {
+font-weight: bold;
+border-top: 1px solid #595;
+}
+</style>
+
+<body>
+<div><h2>Your Nokia Cart</h2></div>
+<table>
+ <% for item in @cart.items %>
+     <tr>
+        <td><%=h item.title %></td>
+        <td><%= item.price %></td>
+     </tr>
+  <% end %>
+<br />
+<tr class="total-line">
+<td>Total</td>
+<td class="total-cell"><%= (@cart.total_price) %></td>
+</tr>
+</table>
+<%= button_to "Buy Now", :action => 'checkout' %>
+<%= button_to "empty cart", :action => :empty_cart %>
+</body>
+</html>

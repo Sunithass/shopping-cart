@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<style>
+body
+{
+background-color: #eeeeee;
+}
+div.table
+{
+align:center;
+padding-left:5em;
+border:1px solid black;
+padding-right:20em;
+}
+h1
+{
+color:black;
+padding-top:0.2em;
+text-align:center;
+}
+h3
+{
+color:purple;
+text-align:center;
+padding-top:5em;
+}
+p
+{
+text-align:center;}</style>
+
+<h3>Thank you for shopping with <%= link_to "www.Nokia.com" %></h3>
+<body>
+<p>We are happy to inform that your product(s) has been marked as dispatched by the seller.</p>
+<p><b>Following are the shipping details for Order</b></p>
+
+<div class="table">
+<p id="notice"><%= notice %></p>
+
+<p>
+<b>Order ID:</b>    
+<%= @order.id %>
+</p>
+
+<p>
+<b>Customer Name:</b>    
+<%= @order.name %>
+</p>
+
+<p>
+<b>Shipping Address:</b>    
+<%= @order.address %>
+</p>
+</div>
+
+</html>
