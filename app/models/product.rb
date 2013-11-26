@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :orders, :through => :line_items
-has_many :line_items
+  has_many :line_items
   attr_accessible  :description, :image_url, :title, :price
 validates_numericality_of :price 
 validate :price
